@@ -2,11 +2,16 @@
 window.onscroll = function () {
   const header = document.querySelector("header");
   const fixedNav = header.offsetTop;
+  const toTop = document.querySelector("#totop");
 
   if (window.pageYOffset > fixedNav) {
     header.classList.add("navbar-fixed");
+    toTop.classList.remove("hidden");
+    toTop.classList.add("flex");
   } else {
     header.classList.remove("navbar-fixed");
+    toTop.classList.remove("flex");
+    toTop.classList.add("hidden");
   }
 };
 
@@ -19,9 +24,35 @@ hamburger.addEventListener("click", function () {
   navMenu.classList.toggle("hidden");
 });
 
-// Belum tau cara hilangkan block humburger ketika di klik di luar block
-// document.addEventListener("click", function (e) {
-//   if (!hamburger.contains(e.target)) {
-//     hamburger.classList.remove("hamburger-active");
-//   }
-// });
+// Klik diluar Hamburger, maka menu hilang
+window.addEventListener("click", function (e) {
+  if (e.target != hamburger && e.target != navMenu) {
+    hamburger.classList.remove("hamburger-active");
+    navMenu.classList.add("hidden");
+  }
+});
+
+// Dark Mode Toggle
+const darkToggle = document.querySelector("#dark-toggle");
+const html = document.querySelector("html");
+
+darkToggle.addEventListener("click", function () {
+  if (darkToggle.checked) {
+    html.classList.add("dark");
+    localStorage.theme = "dark";
+  } else {
+    html.classList.remove("dark");
+    localStorage.theme = "light";
+  }
+});
+
+// Pindahkan Posisi Toggle Sesuai Mode
+if (
+  localStorage.theme === "dark" ||
+  (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  darkToggle.checked = true;
+} else {
+  darkToggle.checked = false;
+}
