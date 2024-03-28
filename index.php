@@ -1,12 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
-    <link href="dist/output.css" rel="stylesheet" />
+    <link href="dist/css/final.css" rel="stylesheet" />
+    <link rel="icon" href="dist/img/myAvatar.png" />
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
-  <body>
+  <body class="dark:bg-cyan-900">
     <!-- Header Start -->
     <header
       class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10"
@@ -14,8 +26,10 @@
       <div class="container">
         <div class="flex items-center justify-between relative">
           <div class="px-4">
-            <a href="#home" class="font-bold text-primary text-lg block py-6"
-              >mwardani</a
+            <a
+              href="#home"
+              class="font-extrabold text-primary text-lg block py-6"
+              >RahmaNdani</a
             >
           </div>
           <div class="flex px-4 items-center">
@@ -37,50 +51,66 @@
             </button>
             <nav
               id="nav-menu"
-              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
+              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:dark:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-darkmode dark:shadow-slate-500"
             >
               <ul class="block lg:flex">
                 <li class="group">
                   <a
                     href="#home"
-                    class="text-base text-dark py-2 mx-8 flex hover:text-primary"
-                    >Beranda</a
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
+                    >Home</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#about"
-                    class="text-base text-dark py-2 mx-8 flex hover:text-primary"
-                    >Tentang Saya</a
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
+                    >About</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#portfolio"
-                    class="text-base text-dark py-2 mx-8 flex hover:text-primary"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
                     >Portfolio</a
                   >
                 </li>
                 <li class="group">
                   <a
-                    href="#clients"
-                    class="text-base text-dark py-2 mx-8 flex hover:text-primary"
-                    >Clients</a
+                    href="#photography"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
+                    >Photography</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#blogs"
-                    class="text-base text-dark py-2 mx-8 flex hover:text-primary"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
                     >Blogs</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#contact"
-                    class="text-base text-dark py-2 mx-8 flex hover:text-primary"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
                     >Contact</a
                   >
+                </li>
+                <li class="mt-3 lg:mt-0 flex items-center pl-8">
+                  <div class="flex">
+                    <span class="mr-2 text-sm text-slate-500">light</span>
+                    <input type="checkbox" class="hidden" id="dark-toggle" />
+                    <label for="dark-toggle">
+                      <div
+                        class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1"
+                      >
+                        <div
+                          class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"
+                        ></div>
+                      </div>
+                    </label>
+                    <span class="ml-2 text-sm text-slate-500">dark</span>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -91,29 +121,34 @@
     <!-- Header End -->
 
     <!-- Hero Section Start -->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 dark:bg-cyan-900">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 lg:w-1/2">
             <h1
               class="text-base font-semibold text-primary md:text-xl lg:text-2xl"
             >
-              Haloo kawan, saya
-              <span class="block font-bold text-dark text-4xl mt-1 lg:text-5xl"
-                >Mazhrur Rahman Kusuma Wardani</span
+              Hellooo, I'm
+              <span
+                class="block font-bold text-dark text-4xl mt-1 lg:text-5xl dark:text-white"
+                >M. RahmaNdani</span
               >
             </h1>
             <h2 class="font-medium text-secondary text-lg mb-5 lg:text-2xl">
-              Freelance Web Designer & <span class="text-dark">Developer</span>
+              Freelance Web Designer &
+              <span class="text-dark dark:text-white">Developer</span>
             </h2>
             <p class="font-medium text-secondary mb-10 leading-relaxed">
-              Belajar <span class="text-dark font-bold">semua</span> tentang
-              desain ... 🙌
+              Creative Design starts from a
+              <span class="text-dark font-bold dark:text-white"
+                >Simple Story ...</span
+              >
+              🙌
             </p>
             <a
               href="#contact"
               class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
-              >Hubungi Saya</a
+              >Contact me</a
             >
           </div>
           <div class="w-full self-end px-4 lg:w-1/2">
@@ -121,10 +156,10 @@
               <img
                 src="dist/img/myAvatar.png"
                 alt="Mazhrur Rahman Kusuma Wardani"
-                class="max-w-full mx-auto"
+                class="max-w-full mx-auto relative z-10"
               />
               <span
-                class="absolute bottom-0 -z-10 left-1/2 -translate-x-1/2 md:scale-125"
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 md:scale-125"
               >
                 <svg
                   width="400"
@@ -133,7 +168,7 @@
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill="#f43f5e"
+                    fill="#e11d48"
                     d="M18.8,10C5.8,33.3,-36,39.1,-43.9,18.7C-51.9,-1.7,-25.9,-48.4,-5,-51.3C15.9,-54.2,31.8,-13.3,18.8,10Z"
                     transform="translate(100 100) scale(1.6)"
                   />
@@ -147,30 +182,43 @@
     <!-- Hero Section End -->
 
     <!-- About Section Start -->
-    <section id="about" class="pt-36 pb-32 mt-36 mb-32">
+    <section id="about" class="pt-36 pb-32 mt-36 mb-32 dark:bg-cyan-900">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full px-4 mb-10 lg:w-1/2">
             <h4 class="font-bold uppercase text-primary text-lg mb-3">
-              Tentang Saya
+              About Me
             </h4>
-            <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">
-              Banyak belajar pemrograman dari Pak Dhika ... 🙌
+            <h2
+              class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl dark:text-white"
+            >
+              One small part of the breadth of art science ...
             </h2>
             <p class="font-medium text-base text-secondary max-w-xl lg-text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-              excepturi voluptatem soluta laboriosam dolorem cupiditate placeat!
+              Not an art practitioner, only learning art from the stories of
+              great people. Working in a government agency that is very far from
+              the art. Trying to develop myself through social media. For more
+              information, please check my portfolio. I believe in working
+              together to create a whole that is greater than the sum of its
+              parts. Thank You ...
             </p>
           </div>
           <div class="w-full px-4 lg:w-1/2">
             <h3
-              class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10"
+              class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10 dark:text-white"
             >
-              Ikuti Saya
+              Connect With Me ...
             </h3>
             <p class="font-medium text-base text-secondary mb-6 lg:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi et
-              sapiente commodi reiciendis consequuntur, nemo incidunt?
+              Find me online on digital platforms, or by clicking the links
+              below.
+              <br />
+              For all business and projects inquiries, email me at
+              <a
+                href="mailto:inadraw.amusu@gmail.com"
+                class="hover:text-primary"
+                >inadraw.amusu@gmail.com</a
+              >
             </p>
             <div class="flex items-center">
               <!-- Youtube -->
@@ -240,7 +288,7 @@
     <!-- About Section End -->
 
     <!-- Portfolio Section Start -->
-    <section id="portfolio" class="pt-36 pb-32 bg-rose-100">
+    <section id="portfolio" class="pt-36 pb-32 bg-rose-50 dark:bg-darkmode">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-5xl mx-auto text-center mb-16">
@@ -248,14 +296,12 @@
               Portfolio
             </h4>
             <h2
-              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl"
+              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
-              Project Terbaru
+              Latest Project
             </h2>
             <p class="font-medium text-md text-secondary md:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-              impedit quibusdam! Beatae distinctio maiores minus neque explicabo
-              corrupti, quam delectus.
+              This is an overview of some of the projects I've worked on.
             </p>
           </div>
         </div>
@@ -265,21 +311,75 @@
         >
           <div class="mb-12 p-4 md:w-1/2">
             <div class="rounded-md shadow-md overflow-hidden">
-              <img
-                src="dist/img/portfolio/1.jpg"
-                alt="Landing Page"
-                width="w-full"
-              />
+              <a
+                href="https://inadraw.github.io/myportfolio/"
+                class="w-full hover:opacity-70"
+                ><img
+                  src="dist/img/portfolio/1.jpg"
+                  alt="My Portfolio"
+                  class="w-full hover:scale-110 transition duration-300 ease-in-out"
+              /></a>
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
-              Landing Page MWardani
+            <h3
+              class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white"
+            >
+              My Portfolio
             </h3>
             <p class="font-medium text-base text-secondary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis praesentium iure magni optio architecto! Et, impedit.
+              The first project I made was based on knowledge from Mr. Dhika.
+              Thank you very much for the knowledge given by Mr. Dhika.
             </p>
           </div>
+
           <div class="mb-12 p-4 md:w-1/2">
+            <div class="rounded-md shadow-md overflow-hidden">
+              <a
+                href="https://toserbaclassic.github.io/toserbaclassic/"
+                target="_blank"
+                class="w-full hover:opacity-70"
+                ><img
+                  src="dist/img/portfolio/5.jpg"
+                  alt="toserbaclassic"
+                  class="w-full hover:scale-110 transition duration-300 ease-in-out"
+              /></a>
+            </div>
+            <h3
+              class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white"
+            >
+              Toserba Classic
+            </h3>
+            <p class="font-medium text-base text-secondary">
+              My second project, special for my little sister's online shop. I
+              got this website template from Mr Rafif. Thank you very much Mr
+              Rafif.
+            </p>
+          </div>
+
+          <div class="mb-12 p-4 md:w-1/2">
+            <div class="rounded-md shadow-md overflow-hidden">
+              <a
+                href="https://tracking-solusimitraalamraya.online/PencarianSppj"
+                target="_blank"
+                class="w-full hover:opacity-70"
+                ><img
+                  src="dist/img/portfolio/6.jpg"
+                  alt="pencariansppj"
+                  class="w-full hover:scale-110 transition duration-300 ease-in-out"
+              /></a>
+            </div>
+            <h3
+              class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white"
+            >
+              Pencarian SPPJ
+            </h3>
+            <p class="font-medium text-base text-secondary">
+              My third project. I received an order from my first customer. Data
+              search application based on unique numbers or codes. I made it
+              with the CodeIgniter 4 framework, MySQL database, myth/auth
+              library, admin-LTE bootstrap template and some additional JQuery.
+            </p>
+          </div>
+          <!-- <div class="mb-12 p-4 md:w-1/2">
             <div class="rounded-md shadow-md overflow-hidden">
               <img
                 src="dist/img/portfolio/2.jpg"
@@ -287,8 +387,10 @@
                 width="w-full"
               />
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
-              Landing Page MWardani
+            <h3
+              class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white"
+            >
+              Landing Page RahmaNdani
             </h3>
             <p class="font-medium text-base text-secondary">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -303,8 +405,10 @@
                 width="w-full"
               />
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
-              Landing Page MWardani
+            <h3
+              class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white"
+            >
+              Landing Page RahmaNdani
             </h3>
             <p class="font-medium text-base text-secondary">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -319,91 +423,57 @@
                 width="w-full"
               />
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
-              Landing Page MWardani
+            <h3
+              class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white"
+            >
+              Landing Page RahmaNdani
             </h3>
             <p class="font-medium text-base text-secondary">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Reiciendis praesentium iure magni optio architecto! Et, impedit.
             </p>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
     <!-- Portfolio Section End -->
 
-    <!-- Clients Section Start -->
-    <section id="clients" class="pt-36 pb-32 bg-rose-900">
+    <!-- Photography Section Start -->
+    <section id="photography" class="pt-36 pb-32 dark:bg-cyan-900">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-5xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2 uppercase">
-              Clients
+              Photography
             </h4>
             <h2
-              class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl"
+              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
-              Yang Pernah Bekerjasama
+              Photo I've ever taken
             </h2>
-            <p class="font-medium text-md text-secondary md:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-              impedit quibusdam! Beatae distinctio maiores minus neque explicabo
-              corrupti, quam delectus.
-            </p>
           </div>
-        </div>
-        <div class="w-full px-4">
-          <div class="flex flex-wrap items-center justify-center">
-            <a
-              href="#"
-              class="max-w-[90px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img src="dist/img/clients/google.svg" alt="Google" />
-            </a>
-            <a
-              href="#"
-              class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img src="dist/img/clients/tokopedia.svg" alt="Tokopedia" />
-            </a>
-            <a
-              href="#"
-              class="max-w-[90px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img src="dist/img/clients/google.svg" alt="Google" />
-            </a>
-            <a
-              href="#"
-              class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img src="dist/img/clients/tokopedia.svg" alt="Tokopedia" />
-            </a>
-            <!-- <a
-              href="#"
-              class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img src="dist/img/clients/gojek.svg" alt="Gojek" />
-            </a>
-            <a
-              href="#"
-              class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img src="dist/img/clients/traveloka.svg" alt="Traveloka" />
-            </a>
-            <a
-              href="#"
-              class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img src="dist/img/clients/tokopedia.svg" alt="Tokopedia" />
-            </a> -->
+          <div
+            class="w-full mx-w-5xl p-5 pb-10 mx-auto mb-10 gap-5 columns-3 space-y-5"
+          >
+            <img src="dist/img/photography/1.jpg" alt="" />
+            <img src="dist/img/photography/2.jpg" alt="" />
+            <img src="dist/img/photography/3.jpg" alt="" />
+            <img src="dist/img/photography/4.jpg" alt="" />
+            <img src="dist/img/photography/5.jpg" alt="" />
+            <img src="dist/img/photography/6.jpg" alt="" />
+            <img src="dist/img/photography/7.jpg" alt="" />
+            <!-- <img src="dist/img/photography/8.jpg" alt="" /> -->
+            <img src="dist/img/photography/9.jpg" alt="" />
+            <!-- <img src="dist/img/photography/10.jpg" alt="" /> -->
+            <!-- <img src="dist/img/photography/11.jpg" alt="" /> -->
           </div>
         </div>
       </div>
     </section>
-    <!-- Clients Section End -->
+    <!-- Photography Section End -->
 
     <!-- Blogs Section Start -->
-    <section id="blogs" class="pt-36 pb-32 bg-white">
+    <section id="blogs" class="pt-36 pb-32 bg-rose-50 dark:bg-darkmode">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-5xl mx-auto text-center mb-16">
@@ -411,98 +481,112 @@
               Blogs
             </h4>
             <h2
-              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl"
+              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
-              Tulisan Terkini
+              Recent Posts
             </h2>
             <p class="font-medium text-md text-secondary md:text-lg">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa
-              nesciunt facilis dolorem cumque voluptas?
+              Everything about digital art.
             </p>
           </div>
         </div>
         <div class="flex flex-wrap">
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div
+              class="bg-white dark:bg-darkmode rounded-xl shadow-lg overflow-hidden mb-10"
+            >
               <a href="#" class="w-full hover:opacity-70"
                 ><img
                   src="https://source.unsplash.com/360x200?programming"
                   alt="Programming"
-                  class="w-full"
+                  class="w-full hover:scale-110 transition duration-300 ease-in-out"
               /></a>
               <div class="py-8 px-6">
                 <h3>
                   <a
                     href="#"
-                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate"
-                    >Tips Belajar Programming</a
+                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"
+                    >Learning Tips Programming</a
                   >
                 </h3>
                 <p class="font-medium text-base text-secondary mb-6">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
-                  aspernatur.
+                  Whether you’re currently pursuing a degree in computer
+                  science, a veteran using the GI Bill to choose their next
+                  mission, an aspiring self-taught developer, or a coding boot
+                  camp student, mastering the craft of programming is a
+                  perpetual struggle.
                 </p>
                 <a
                   href="#"
                   class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-70"
-                  >Baca selengkapnya</a
-                >
+                  >Read more
+                </a>
               </div>
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div
+              class="bg-white dark:bg-darkmode rounded-xl shadow-lg overflow-hidden mb-10"
+            >
               <a href="#" class="w-full hover:opacity-70"
                 ><img
                   src="https://source.unsplash.com/360x200?computer"
                   alt="Programming"
-                  class="w-full"
+                  class="w-full hover:scale-110 transition duration-300 ease-in-out"
               /></a>
               <div class="py-8 px-6">
                 <h3>
                   <a
                     href="#"
-                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate"
-                    >Belajar Dasar Jaringan</a
+                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"
+                    >How to Create Digital Art</a
                   >
                 </h3>
                 <p class="font-medium text-base text-secondary mb-6">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Magnam, nisi!
+                  Making a positive first impression on those who view your
+                  artwork and designs is essential, whether you are trying to
+                  establish a reputation as an artist or if you are attempting
+                  to market a product. Digital artwork can take many forms, and
+                  creating.
                 </p>
                 <a
                   href="#"
                   class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-70"
-                  >Baca selengkapnya</a
-                >
+                  >Read more
+                </a>
               </div>
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div
+              class="bg-white dark:bg-darkmode rounded-xl shadow-lg overflow-hidden mb-10"
+            >
               <a href="#" class="w-full hover:opacity-70"
                 ><img
                   src="https://source.unsplash.com/360x200?keyboard"
                   alt="Programming"
-                  class="w-full"
+                  class="w-full hover:scale-110 transition duration-300 ease-in-out"
               /></a>
               <div class="py-8 px-6">
                 <h3>
                   <a
                     href="#"
-                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate"
-                    >Mekenikal Keyboard</a
+                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"
+                    >Create Transparent Signature</a
                   >
                 </h3>
                 <p class="font-medium text-base text-secondary mb-6">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus?
+                  Looking for a fast way to make a transparent digital
+                  signature? With Fotor's free online signature background
+                  remover, you can get it done with just one click! All you need
+                  to do is upload your handwritten signature picture, and
+                  Fotor’s AI background remover.
                 </p>
                 <a
                   href="#"
                   class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-70"
-                  >Baca selengkapnya</a
-                >
+                  >Read more
+                </a>
               </div>
             </div>
           </div>
@@ -512,7 +596,7 @@
     <!-- BLogs Section End -->
 
     <!-- Contact Section Start -->
-    <section id="contact" class="pt-36 pb-32 bg-rose-100">
+    <section id="contact" class="pt-36 pb-32 dark:bg-cyan-900">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-5xl mx-auto text-center mb-16">
@@ -520,151 +604,40 @@
               Contact
             </h4>
             <h2
-              class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl"
+              class="font-bold text-dark dark:text-white text-3xl mb-4 sm:text-4xl lg:text-5xl"
             >
-              Hubungi Kami
+              Hellooo
             </h2>
             <p class="font-medium text-md text-secondary md:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nisi
-              itaque numquam voluptas asperiores.
+              Drop me a line for inquiries, collaborations, project, or just to
+              say hello.
+              <br />
+              <a
+                href="mailto:inadraw.amusu@gmail.com"
+                class="hover:text-primary"
+                >inadraw.amusu@gmail.com</a
+              >
+              <br /><br />
+              Surabaya, Indonesia
             </p>
           </div>
         </div>
-
-        <form>
-          <div class="w-full md:w-2/3 md:mx-auto">
-            <div class="w-full px-4 mb-8">
-              <label for="name" class="text-base font-bold text-primary"
-                >Nama</label
-              >
-              <input
-                type="text"
-                id="name"
-                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
-              />
-            </div>
-            <div class="w-full px-4 mb-8">
-              <label for="email" class="text-base font-bold text-primary"
-                >Email</label
-              >
-              <input
-                type="email"
-                id="email"
-                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
-              />
-            </div>
-            <div class="w-full px-4 mb-8">
-              <label for="message" class="text-base font-bold text-primary"
-                >Pesan</label
-              >
-              <textarea
-                type="text"
-                id="message"
-                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"
-              ></textarea>
-            </div>
-            <div class="w-full px-4">
-              <button
-                class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-75 hover:shadow-lg transition duration-500"
-              >
-                Kirim
-              </button>
-            </div>
-          </div>
-        </form>
       </div>
     </section>
     <!-- Contact Section End -->
 
     <!-- Footer Section Start -->
-    <footer class="bg-rose-900 pt-24 pb-12">
+    <footer class="bg-rose-950 pt-2 pb-2 dark:bg-darkmode">
       <div class="container">
-        <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-12 text-secondary font-medium md:w-1/3">
-            <h2 class="font-bold text-4xl text-white mb-5">MWardani</h2>
-            <h3 class="font-bold text-2xl mb-2">Hubungi Kami</h3>
-            <p>inadraw.amusu@gmail.com</p>
-            <p>Jl. Simo Langit 14 Nomor. 48c</p>
-            <p>Surabaya</p>
+        <div class="flex items-center justify-between relative">
+          <div class="px-4">
+            <a
+              href="#home"
+              class="font-extrabold text-primary text-lg block py-6"
+              >RahmaNdani</a
+            >
           </div>
-          <div class="w-full px-4 mb-12 md:w-1/3">
-            <h3 class="font-semibold text-xl text-white mb-5">
-              Kategori Tulisan
-            </h3>
-            <ul class="text-secondary">
-              <li>
-                <a
-                  href="#"
-                  class="inline-block text-base hover:text-primary mb-3"
-                  >Programming</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="inline-block text-base hover:text-primary mb-3"
-                  >Teknologi</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="inline-block text-base hover:text-primary mb-3"
-                  >Desain</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="w-full px-4 mb-12 md:w-1/3">
-            <h3 class="font-semibold text-xl text-white mb-5">Tautan</h3>
-            <ul class="text-secondary">
-              <li>
-                <a
-                  href="#home"
-                  class="inline-block text-base hover:text-primary mb-3"
-                  >Beranda</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  class="inline-block text-base hover:text-primary mb-3"
-                  >Tentang Saya</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#portfolio"
-                  class="inline-block text-base hover:text-primary mb-3"
-                  >Portfolio</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#clients"
-                  class="inline-block text-base hover:text-primary mb-3"
-                  >Clients</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#blogs"
-                  class="inline-block text-base hover:text-primary mb-3"
-                  >Blogs</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  class="inline-block text-base hover:text-primary mb-3"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="w-full pt-10 border-t border-primary">
-          <div class="flex items-center justify-center mb-5">
+          <div class="flex">
             <!-- Youtube -->
             <a
               href="https://www.youtube.com/@mazhwardani"
@@ -725,25 +698,20 @@
               </svg>
             </a>
           </div>
-          <p class="font-medium text-xs text-secondary text-center">
-            Created by
-            <a
-              href="https://www.instagram.com/mwardani.id/"
-              target="_blank"
-              class="font-bold text-white"
-              >MWardani</a
-            > 2023, using
-            <a
-              href="https://tailwindcss.com"
-              target="_blank"
-              class="font-bold text-white"
-              >Tailwind CSS</a
-            >
-          </p>
         </div>
       </div>
     </footer>
     <!-- Footer Section End -->
+
+    <!-- Back to Top Section Start -->
+    <a
+      href="#home"
+      class="p-4 bottom-4 right-4 z-[9999] fixed h-14 w-14 rounded-full bg-primary hidden justify-center items-center hover:animate-pulse"
+      id="totop"
+    >
+      <span class="mt-2 block h-5 w-5 rotate-45 border-t-2 border-l-2"></span>
+    </a>
+    <!-- Back to Top Section End -->
 
     <script src="dist/js/script.js"></script>
   </body>
