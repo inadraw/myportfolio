@@ -56,3 +56,29 @@ if (
 } else {
   darkToggle.checked = false;
 }
+
+// memanggil data API Instagram
+const userId = "8350676161707252"; // Ganti dengan user ID Anda
+const accessToken =
+  "IGQWROVzhLaUl3STNOY08yVC00ZAUg1QnQ0a0dmc1VyNHlRaWRMZAWx6OV92X0hlZA0dxYm1Lcl9xaWZAPSGMwUHZAqMThZAQlFnZAGlPUF8xUmpWVEFVMmV5VlFqbklPaE1vdUtMUVc3Rzd4SExmaTZAUcnhWNVZA1cDhQODQZD"; // Ganti dengan token akses Anda
+
+fetch(
+  `https://graph.instagram.com/${userId}?fields=id,username,profile_picture_url,followers_count,name&access_token=${accessToken}`
+)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok " + response.statusText);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    // Menampilkan data ke halaman
+    document.getElementById("profile-picture").src = data.profile_picture_url;
+    document.getElementById(
+      "username"
+    ).innerText = `Username: ${data.username}`;
+    document.getElementById(
+      "followers-count"
+    ).innerText = `Followers: ${data.followers_count}`;
+  })
+  .catch((error) => console.error("Error fetching data:", error));
